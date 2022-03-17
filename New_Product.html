@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <hl>New Product</hl>
+    <hr />
+    <form name=" frm">
+        <p>
+            <label>
+                Product Name
+                <input type="text" name="pname" id="pname" />
+            </label>
+            <label>
+                Quantity
+                <input type="text" name="qty" id="qty" />
+            </label>
+        </p>
+        <p>
+            <label>
+                Unit Price
+                <input type="text" name="up" id="up" />
+            </label>
+            <label>
+                Discount
+                <input type="text" name="de" id="de" />
+                </1abel>
+        </p>
+        <button type="button" onclick="sell ()">Sell</button>
+        <button type="button">Cancel</button>
+        </p>
+    </form>
+    <table id="tbl">
+        <th>ID</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Discount</th>
+        <th>Subtotal</th>
+        </tr>
+
+    </table>
+    <script type="text/javascript">
+        var id = 0;
+        function sell() {
+            id++;
+            var pname = frm.pname.value;
+            var qty = frm.qty.value;
+            var price = frm.up.value;
+            var dc = frm.dc.value;
+            var sub = qty*price*(1-dc/100);
+            var row = "<tr>";
+            row += "<td>" + id + "</td>";
+            row += "<td>" + pname + "</td>";
+            row += "<td>" + qty + "</td>";
+            row += "<td>$" + price + "</td>";
+            row += "<td>" + dc + "</td>";
+            row += "<td>Ş" + sub + "</td>";
+            row += "</tr>";
+            document.getElementById("tbl").innerHTML += row;
+        }
+    </script>
+</body>
+</html>
